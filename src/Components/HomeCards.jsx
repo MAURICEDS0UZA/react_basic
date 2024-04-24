@@ -15,7 +15,7 @@ export default function HomeCards() {
           <Card>
             <h1 className="text-2xl font-bold">For Employers</h1>
             <p className="mt-2 mb-4">List your job for perfect match</p>
-            <a className="bg-black text-white rounded-md p-1">Add jobs</a>
+            <a className="bg-indigo-600 text-white rounded-md p-1">Add jobs</a>
           </Card>
         </div>
       </div>
