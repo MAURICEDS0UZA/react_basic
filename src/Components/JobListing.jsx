@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { jobs } from "../jobs.json";
+import {FaMapMarker } from 'react-icons/fa'
 
 export const JobListing = () => {
   const [showDescriptions, setShowDescriptions] = useState({});
@@ -24,7 +25,8 @@ console.log(showDescriptions)
             <button onClick={() => toggleDescription(job.id)} className="text-indigo-400 mb-5 hover:text-indigo-600">{showDescriptions[job.id] ? 'Less' : "More"}</button>
             <h3 className="py-1">{job.salary}</h3>
             <div className="flex flex-row justify-between border-t-2 pt-4">
-              <div>{job.location}</div>
+              <div className="text-orange-700 mb-3">
+                <FaMapMarker className="inline mb-1 mr-2"/>{job.location}</div>
               <button className="bg-indigo-500 rounded-md p-2 text-white">Read more</button>
             </div>
           </div>
