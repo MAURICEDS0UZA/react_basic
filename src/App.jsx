@@ -1,16 +1,20 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
-import Hero from "./Components/Hero";
-import HomeCards from "./Components/HomeCards";
-import { JobListings } from "./Components/JobListings";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MainLayout from "./layout/MainLayout";
+import JobsPage from "./pages/JobsPage";
 
-export default function App() {
+const App = () => {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <HomeCards />
-      <JobListings />
-    </>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<MainLayout/>}>
+          <Route index element={<HomePage />} />
+          <Route exact path="/jobs" element={<JobsPage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
-}
+};
+
+export default App;
