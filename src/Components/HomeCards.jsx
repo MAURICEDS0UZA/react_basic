@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import Card from "./Card";
 export default function HomeCards() {
@@ -10,12 +11,12 @@ export default function HomeCards() {
             <p className="mt-2 mb-4">
               Browser our React job and start your carrier
             </p>
-            <a className="bg-black text-white rounded-md p-1">Browser Jobs</a>
+            <Link to='/jobs' className="bg-black text-white rounded-md p-1">Browser Jobs</Link>
           </Card>
           <Card>
             <h1 className="text-2xl font-bold">For Employers</h1>
             <p className="mt-2 mb-4">List your job for perfect match</p>
-            <a className="bg-indigo-600 text-white rounded-md p-1">Add jobs</a>
+            <Link to='/add-jobs'  className="bg-indigo-600 text-white rounded-md p-1">Add jobs</Link>
           </Card>
         </div>
       </div>
