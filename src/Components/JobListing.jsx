@@ -11,7 +11,7 @@ export const JobListing = () => {
       [jobId]: !prevDescriptions[jobId]
     }));
   };
-console.log(showDescriptions)
+
   const requiredIds = ['1', '2', '3'];
 
   return (
