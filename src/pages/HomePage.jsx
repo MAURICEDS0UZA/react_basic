@@ -1,14 +1,16 @@
-import React from 'react'
-import HomeCards from '../Components/HomeCards'
-import  {JobListings}  from '../Components/JobListings'
-import ViewAllJobs from "../Components/ViewAllJobs"
+import React from "react";
+import HomeCards from "../Components/HomeCards";
+import { JobListings } from "../Components/JobListings";
+import ViewAllJobs from "../Components/ViewAllJobs";
+import Hero from "../Components/Hero";
 
 export default function HomePage() {
   return (
-   <>
-   <HomeCards/>
-   <JobListings/>
-   <ViewAllJobs/>
-   </>
-  )
+    <>
+      <Hero />
+      <HomeCards />
+      <JobListings />
+      <ViewAllJobs />
+    </>
+  );
 }
