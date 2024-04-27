@@ -20,7 +20,7 @@ export const JobListing = ({ job, isHome }) => {
   }
 
   const requiredIds = isHome? removeDuplicates(listJob).slice(0, 3):removeDuplicates(listJob)
-  console.log(requiredIds);
+  
   return (
     <>
       {requiredIds.includes(job.id) && (
