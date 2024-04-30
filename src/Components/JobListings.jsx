@@ -1,9 +1,11 @@
 import React from "react";
 import { JobListing } from "./JobListing";
 import { useState, useEffect } from "react";
+import Spinner from "./Spinner";
 
 export const JobListings = ({ isHome = false }) => {
   const [jobs, setjobs] = useState([]);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -16,6 +18,8 @@ export const JobListings = ({ isHome = false }) => {
         setjobs(data);
       } catch (error) {
         console.error("Error found:", error);
+      } finally {
+        setloading(false);
       }
     };
     fetchJobs();
@@ -27,11 +31,15 @@ export const JobListings = ({ isHome = false }) => {
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
           {isHome ? " Recent Jobs" : "Browser Jobs"}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {jobs.map((job) => (
-            <JobListing job={job} key={job.id} />
-          ))}
-        </div>
+        {loading ? (
+          <Spinner loading={loading} />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {jobs.map((job) => (
+              <JobListing job={job} key={job.id} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
