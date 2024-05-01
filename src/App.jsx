@@ -1,22 +1,34 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MainLayout from "./layout/MainLayout";
 import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./Components/NotFoundPage";
+import JobPage, { jobLoader } from "./pages/JobPage";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route exact path="/" element={<MainLayout />}>
+      <Route index element={<HomePage />} />
+      <Route exact path="/jobs" element={<JobsPage />} />
+      <Route
+        exact
+        path={`/jobs/:id`}
+        element={<JobPage />}
+        loader={jobLoader}
+      />
+      <Route exact path="/*" element={<NotFoundPage />} />
+    </Route>
+  )
+);
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<MainLayout/>}>
-          <Route index element={<HomePage />} />
-          <Route exact path="/jobs" element={<JobsPage />} />
-          <Route exact path="/*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
