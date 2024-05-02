@@ -10,6 +10,7 @@ import MainLayout from "./layout/MainLayout";
 import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./Components/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
+import AddJobPage from "./pages/AddJobPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
         element={<JobPage />}
         loader={jobLoader}
       />
+      <Route exact path={"/add-job"} element={<AddJobPage />} />
       <Route exact path="/*" element={<NotFoundPage />} />
     </Route>
   )
