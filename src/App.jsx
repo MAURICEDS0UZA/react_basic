@@ -12,6 +12,18 @@ import NotFoundPage from "./Components/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
 
+const addJobList = ({ newJob }) => {
+  fetch("/api/jobs", {
+    method: "post",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newJob),
+  });
+};
+
+// const deleteJobList=()
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route exact path="/" element={<MainLayout />}>
@@ -23,7 +35,11 @@ const router = createBrowserRouter(
         element={<JobPage />}
         loader={jobLoader}
       />
-      <Route exact path={"/add-job"} element={<AddJobPage />} />
+      <Route
+        exact
+        path={"/add-job"}
+        element={<AddJobPage addJobToList={addJobList} />}
+      />
       <Route exact path="/*" element={<NotFoundPage />} />
     </Route>
   )
