@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function AddJobPage() {
+function AddJobPage({ addJobToList }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     jobType: "",
     jobTitle: "",
@@ -33,6 +35,9 @@ function AddJobPage() {
         contactPhone: `${formData.contactPhone}`,
       },
     };
+
+    addJobToList({ newJob });
+    navigate("/jobs");
   };
 
   return (
