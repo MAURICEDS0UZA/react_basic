@@ -45,6 +45,9 @@ function AddJobPage({ addJobToList }) {
       <div className=" bg-indigo-200 pb-24 pt-1">
         <div className="container m-auto max-w-2xl py-24">
           <div className="bg-gray-50 px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
+            <h3 className="text-center font-extrabold text-2xl   text-gray-500">
+              Add Job
+            </h3>
             <form onSubmit={handleSubmit} className="mt-8">
               <div className="mb-4">
                 <label
