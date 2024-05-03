@@ -23,7 +23,11 @@ const addJobList = ({ newJob }) => {
   });
 };
 
-// const deleteJobList=()
+const deleteJobList = (id) => {
+  console.log("hello", id);
+  fetch(`/api/jobs/${id}`, { method: "delete" });
+};
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route exact path="/" element={<MainLayout />}>
@@ -32,7 +36,7 @@ const router = createBrowserRouter(
       <Route
         exact
         path={`/jobs/:id`}
-        element={<JobPage />}
+        element={<JobPage deleteJobList={deleteJobList} />}
         loader={jobLoader}
       />
       <Route
