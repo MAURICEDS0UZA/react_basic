@@ -1,5 +1,7 @@
 import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
+
 const UpdatePage = ({ updateJobList }) => {
   const { id } = useParams();
   const job = useLoaderData();
@@ -40,6 +42,7 @@ const UpdatePage = ({ updateJobList }) => {
     };
 
     updateJobList({ updateJob });
+    toast.success("updated successfully");
     navigate("/jobs");
   };
 
