@@ -2,6 +2,7 @@ import { useParams, useLoaderData } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const JobPage = ({ deleteJobList }) => {
   const navigate = useNavigate();
@@ -82,6 +83,11 @@ const JobPage = ({ deleteJobList }) => {
                 <button
                   onClick={() => {
                     deleteJobList(job.id);
+                    const confirmation = confirm(
+                      `Do you want to delete ${job.title} job?`
+                    );
+                    if (!confirmation) return;
+                    toast.success("Job deleted Succesfully");
                     navigate("/jobs");
                   }}
                   className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
